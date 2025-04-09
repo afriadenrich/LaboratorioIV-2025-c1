@@ -1,0 +1,19 @@
+<!-- Bindeo - conectar variable con vista -->
+<!-- Desde el typescript a la vista HTML-->
+<h1>Tiutlo: {{ this.title }}</h1>
+
+<!-- Bindeo - conectar variable con propiedad -->
+<!-- Desde el typescript a una propiedad HTML-->
+<img [src]="urlImagen" alt="error" width="150" height="150" />
+
+<!-- Bindeo - desde el HTML llamar a un método de la instancia de la clase -->
+<!-- Desde la propiedad HTML al typescript-->
+<button (click)="cambiarTitle('UTN FRA')">Cambiar título</button>
+
+<!-- Bindeo doble - desde html a typescript y viceversa -->
+<!-- Siempre en los input -->
+<!-- Este input cambie el valor de title.
+  Si cambio el valor de title, cambie el valor del input -->
+<!-- Propiedad como (evento) y como [atributo] -->
+<input type="text" [(ngModel)]="title" />
+<!-- Para que funcione, se necesia importar el módulo de formularios, FromsModule -->
