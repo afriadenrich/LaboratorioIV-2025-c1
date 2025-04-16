@@ -1,1 +1,21 @@
-<p>listado works!</p>
+<h1>Listado Autos!</h1>
+
+<!-- @for -->
+
+@for (auto of autos(); track auto.id; let indice = $index) {
+<div style="display: flex">
+  <p>{{ indice }}-</p>
+  <p>{{ auto.id }}-</p>
+  <p>{{ auto.marca }}-</p>
+  <p>{{ auto.modelo }}-</p>
+  <p>{{ auto.precio }}</p>
+  <button (click)="eliminar(auto.id)">Eliminar</button>
+</div>
+}
+
+<!-- @if -->
+@if (hayAutos) {
+<h1>Hay autos!</h1>
+} @else {
+<h1>No hay autos!</h1>
+}

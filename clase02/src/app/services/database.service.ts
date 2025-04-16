@@ -1,21 +1,19 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Auto } from '../classes/auto';
+import { SupabaseService } from './supabase.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
-  supabase: SupabaseClient<any, "public", any>;
+  sb = inject(SupabaseService);
   tablaAutos;
   constructor() {
 
-    this.supabase = createClient(
-      "https://kgwdhjvbrefggbpxzzji.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtnd2RoanZicmVmZ2dicHh6emppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ4MDQwMjYsImV4cCI6MjA2MDM4MDAyNn0.70j1FH8gdnkCtWISleulRV0zDso2FwFMN7oF09E_TsA"
-    );
-    this.tablaAutos = this.supabase.from("autos");
-    console.log(this.supabase);
+    
+    this.tablaAutos = this.sb.supabase.from("autos");
+    console.log(this.sb.supabase);
 
   }
 
@@ -28,7 +26,7 @@ export class DatabaseService {
     // eq = equal ===
     // limit 
     // offest 
-    const {data, error, count , status, statusText } = await this.supabase.from("autos").select("*").lt("precio", 1000)
+    const {data, error, count , status, statusText } = await this.sb.supabase.from("autos").select("*").lt("precio", 1000)
 
     const autos = data as Auto[];
     console.log(data, error, count, status, statusText);
@@ -36,21 +34,23 @@ export class DatabaseService {
   }
   
   async crear(auto: Auto){
-    const {data, error, count, status, statusText } = await this.supabase.from("autos").insert(auto);
+    const {data, error, count, status, statusText } = await this.sb.supabase.from("autos").insert(auto);
     console.log(data, error, count, status, statusText);
   }
   
   async modificar(auto: Auto){
     // UPDATE ... WHERE id = n;
     const { data, error, count, status, statusText} = 
-    await this.supabase.from("autos").update(auto).eq("id", auto.id); 
+    await this.sb.supabase.from("autos").update(auto).eq("id", auto.id); 
     console.log(data, error, count, status, statusText);
   }
   
   
-  async eliminar(id: number){
+  async eliminar(id?: number){
+    if(id === undefined) return;
+    
     const { data, error, count, status, statusText} = 
-    await this.supabase.from("autos").delete().eq("id", id);
+    await this.sb.supabase.from("autos").delete().eq("id", id);
     console.log(data, error, count, status, statusText);
   }
 

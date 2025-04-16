@@ -1,7 +1,13 @@
 <div>
-  <button routerLink="login">Login</button>
-  <button routerLink="registro">Registro</button>
+  @if(auth.usuarioActual !== null) {
+  <!-- Hay usuario -->
   <button routerLink="">Home</button>
   <button routerLink="listado">Listado</button>
+  <h1>Hola {{ auth.usuarioActual.email }}</h1>
+  } @else {
+  <!-- No hay usuario -->
+  <button routerLink="login">Login</button>
+  <button routerLink="registro">Registro</button>
+  }
 </div>
 <router-outlet />
