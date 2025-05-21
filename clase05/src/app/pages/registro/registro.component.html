@@ -1,0 +1,35 @@
+<form [formGroup]="formulario" class="m-4">
+  <!-- <input [formControl]="nombre" /> -->
+
+  <div class="m-2">
+    <label for="nombre">Nombre</label>
+    <input formControlName="nombre" class="form-control" id="nombre" />
+    <app-form-error
+      [control]="formulario.controls.nombre"
+      nombre="nombre"
+    ></app-form-error>
+  </div>
+
+  <div class="m-2">
+    <input formControlName="apellido" class="form-control" />
+    <app-form-error
+      [control]="formulario.controls.apellido"
+      nombre="apellido"
+    ></app-form-error>
+  </div>
+
+  <div class="m-2">
+    <input [formControl]="formulario.controls.dni" class="form-control "  />
+    <app-form-error
+      [control]="formulario.controls.dni"
+      nombre="dni"
+    ></app-form-error>
+  </div>
+  <input type="date" formControlName="fechaNacimiento" />
+  <app-form-error
+      [control]="formulario.controls.fechaNacimiento"
+      nombre="edad"
+    ></app-form-error>
+  <input type="checkbox" />-->
+  <button (click)="enviar()" class="btn btn-success" [disabled]="formulario.invalid" >Enviar</button>
+</form>

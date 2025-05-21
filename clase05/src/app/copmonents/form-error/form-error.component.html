@@ -1,0 +1,18 @@
+@if(control() !== undefined ) { 
+    @if(control()!.touched){ 
+        @if(control()!.hasError("minlength")){
+            <small style="color: red"
+            >El {{nombre}} es muy corto, minimo
+            {{ control()!.getError("minlength").requiredLength }}</small
+            ><br />
+        } @if(control()!.hasError("required")){
+            <small style="color: red">El {{nombre}} es requerido</small><br />
+        } @if(control()!.hasError("maxlength")){
+            <small style="color: red">El {{nombre}} es muy largo</small><br />
+        } @if(control()!.hasError("pattern")){
+            <small style="color: red">El {{nombre}} no es un número</small><br />
+        } @if(control()!.hasError("mayor")){
+            <small style="color: red">No es mayor de edad</small><br />
+        } 
+    } 
+}
