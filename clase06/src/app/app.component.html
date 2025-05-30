@@ -1,0 +1,12 @@
+<div class="form-control">
+  <label for="archivo">Subida de archivos</label>
+  <input
+    id="archivo"
+    type="file"
+    [(ngModel)]="archivoNgModel"
+    (change)="onCambioDeArchivo($event)"
+  />
+</div>
+<button class="btn btn-success" (click)="subir()">Subir</button>
+
+<router-outlet />
