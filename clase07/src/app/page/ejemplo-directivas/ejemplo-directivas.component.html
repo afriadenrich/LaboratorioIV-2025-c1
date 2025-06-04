@@ -1,0 +1,29 @@
+<p>ejemplo-directivas works!</p>
+
+<!-- <button (click)="">Click</button>
+
+<input [(ngModel)]="name" />
+
+@for (item of items; track $index) {} @if () {} -->
+
+<p [ngClass]="clases">Hola mundo</p>
+<p [ngClass]="subrayar ? 'sub' : ''">Hola mundo</p>
+<p [ngClass]="error ? 'rojo' : ''">Hola mundo</p>
+<p [ngClass]="verde && subrayar ? 'verde sub' : ''">Hola mundo</p>
+
+<h6>REDUNDANTE:</h6>
+<p [ngClass]="'sub'">Hola mundo</p>
+<p class="sub">Hola mundo</p>
+
+<!-- boolean ? valorVerdadero : valorFalso boolean && valorVerdadero -->
+
+<h5>Directiva propia</h5>
+
+<p appHighlight="red">Texto en directiva 1</p>
+<p appHighlight="blue">Texto en directiva 2</p>
+<p appHighlight color="yellow">Texto en directiva 3</p>
+<p appHighlight color="#aaaaaaaa">Texto en directiva 4</p>
+
+<p appHighlight>Texto en directiva 5</p>
+
+<p ngNonBindable>{{ clases }}</p>

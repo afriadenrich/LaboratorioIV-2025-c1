@@ -1,0 +1,28 @@
+<hr />
+<h1>ejemplo-pipes</h1>
+<br />
+
+<p>{{ title | uppercase }}</p>
+<p>{{ nombre | titlecase }}</p>
+
+<p>{{ nombre | uppercase }}</p>
+<p>{{ nombre }}</p>
+
+<!-- <p>{{ saludoPromise | async }}</p> -->
+
+<p>{{ numero | number }}</p>
+<p>{{ numero | number : "10.5-10" : "es" }}</p>
+<p>{{ numero | currency }}</p>
+<p>{{ numero | currency : "EUR" : true : "5.3-5" }}</p>
+<p>{{ numero | currency : "USD" : true : "5.3-5" : "en" }}</p>
+<p>{{ numero | currency : "ARS" : "symbol" : "5.3-5" }}</p>
+
+<p>{{ fecha | date : "shortTime" : "UTC-3" }}</p>
+<p>{{ fecha | date : "dd-mm-yyyy HH-mm-ss" : "UTC-3" }}</p>
+<p>{{ fecha | date : "long" : "UTC-3" }}</p>
+
+<h5>Pipe propia</h5>
+<p>{{ ejemplo1 | textoLargo }}</p>
+<p>{{ ejemplo2 | textoLargo }}</p>
+<p>{{ ejemplo3 | textoLargo : 18 : 10 }}</p>
+<p>{{ ejemplo4 | textoLargo }}</p>
