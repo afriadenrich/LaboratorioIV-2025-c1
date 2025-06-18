@@ -26,5 +26,11 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "version": 1,
+      "urls": []
+    }
   ]
 }
